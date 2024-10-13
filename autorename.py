@@ -53,7 +53,7 @@ def autoRename(directory):
             month = month_dict[re.findall(r'__\D{3}_', name)[0][2:-1]]
             ident = re.findall(r'__\d+_', name)[0][2:-1]
             date = re.findall(r'_\d+__\d{4}', name)[0][1:-6].rjust(2, '0')
-            year = re.findall(r'\d{4}', name)[0]
+            year = re.findall(r'\d{4}', name)[-1]
             # Klistra ihop
             new_name = f'{year}-{month}-{date}#{ident}.pdf'
             new_dist = os.path.join(new_dir, new_name)
